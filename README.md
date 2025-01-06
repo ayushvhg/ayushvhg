@@ -1,4 +1,4 @@
-AYUSH Virtual Herbal Garden
+#AYUSH Virtual Herbal Garden
 An Interactive Guide to Medicinal Plants and Ayurvedic Remedies with AI Powered Plant Identification.
 
  Table of Contents
