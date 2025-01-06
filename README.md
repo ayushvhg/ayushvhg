@@ -24,13 +24,14 @@ The AYUSH Virtual Herbal Garden aims to revolutionize the identification and uti
  Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
  Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
 
- Diagram: Add Figmabased visual here
+ Diagram:
+ 
 
 
 
 Features
- AI-Powered Identification: Upload plant images for identification and detailed information, including scientific names and geographic locations.
- Disease Module: Suggests Ayurvedic remedies, including formulations, usage instructions, and associated yoga practices.
+ Plant Identification Module: Upload plant images for identification and detailed information, including scientific names and geographic locations.
+ Disease Based medicine recommendation Module: Suggests Ayurvedic remedies, including formulations, usage instructions, and associated yoga practices.
  Interactive UI: Flaskbased application offering userfriendly navigation and engagement.
 
  Visuals: Add Figma screenshots or mockups for features
