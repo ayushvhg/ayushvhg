@@ -1,0 +1,77 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("https://img.freepik.com/premium-photo/ayurvedic-herbs-free-photo-hd-background_915071-111358.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color:green;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="button"] {
+  width: 90%;
+  padding: 8px;
+  margin: 10px auto;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+  display: block;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  border-color:green;
+}
+
+form input[type="button"] {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  width: 94%;
+}
+
+form input[type="button"]:hover {
+  background-color: green;
+}
+
+.signup,
+.forgot-password {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup a,
+.forgot-password a {
+  color: green;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup a:hover,
+.forgot-password a:hover {
+  text-decoration: underline;
+}

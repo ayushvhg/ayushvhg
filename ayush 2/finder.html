@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Garden - Finder</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function findMedicine() {
+      const disease = document.getElementById('disease-input').value;
+      alert(`Alternate natural medicine for ${disease}: Tulasi, Neem`);
+    }
+  </script>
+</head>
+<body>
+  <!-- Top Frame -->
+  <div class="top-frame">
+    <div class="nav-links">
+      <a href="dashboard.html">Garden</a>
+      <a href="plantify.html">Plantify</a>
+      <a href="finder.html">Finder</a>
+    </div>
+    <div class="title">
+        <h1>Ayush Insights</h1>
+      </div>
+    <div class="top-right">
+      <button class="logout-button">Logout</button>
+      <div class="profile-icon"></div>
+    </div>
+  </div>
+
+  <!-- Bottom Frame -->
+   <center>
+  <div style="margin: 0; font-family: Arial, sans-serif; background-color: #e4e4e4; display: flex; justify-content: center; align-items: center; height:120vh  ">
+    <div style="text-align: center; ">
+        <p style="font-size: 14px; font-weight: bold; color: #36b96f;  text-align: left; margin: 0;">HEALTHY MEDICINE</p>
+        <h1 style="font-size: 50px; font-weight: bold; color: #2d2d2d; margin: 5px 0 20px;">Find a natural alternative!</h1>
+    
+        <div style="background-color: white; border-radius: 20px; box-shadow: 0 14px 8px rgba(0, 0, 0, 0.1); padding: 30px; width: 100%; max-width: 500px; height:500px; justify-content: center; align-items: center;">
+          <p style="font-size: 16px; font-weight: bold; color: #36b96f; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; text-align: center;">Herbal Remedies</p>
+          <div style="border-top: 2px solid #36b96f; width: 120px; margin: -8px auto 20px;"></div>
+    
+          <textarea placeholder="Type the disease" style="width: 100%; height: 320px; border: 1px solid #e5e5e5; border-radius: 10px; padding: 10px; font-size: 14px; color: #a9a9a9; resize: none; box-sizing: border-box;"></textarea>
+    
+          <button style="background-color: #36b96f; color: white; border: none; border-radius: 20px; padding: 10px 20px; font-size: 16px; font-weight: bold; margin-top: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto;">
+            <span style="font-size: 18px;">&#128269;</span> Find
+          </button>
+        </div>
+    </div>
+</div></center>
+  
+</body>
+</html>

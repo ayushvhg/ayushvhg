@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form">
+    <header>Signup</header>
+    <form action="#">
+      <input type="text" id="name" placeholder="Enter your name">
+      <input type="text" id="username" placeholder="Enter your username">
+      <input type="text" id="email" placeholder="Enter your email">
+      <input type="password" id="password" placeholder="Create a password">
+      <input type="button" class="button signupbtn" value="Signup">
+    </form>
+    <div class="signup">
+      <span>Already have an account? <a href="login.html">Login</a></span>
+    </div>
+  </div>
+
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="config.js"></script>
+
+  <!-- Signup Logic -->
+  <script>
+    const auth = firebase.auth(); // Ensure Firebase is initialized
+
+    // Add an event listener to the signup button
+    document.querySelector(".signupbtn").addEventListener("click", function (e) {
+      e.preventDefault(); // Prevent default form submission behavior
+
+      // Get user inputs
+      const name = document.getElementById("name").value.trim();
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password || !username || !name) {
+        alert("Please fill in all fields");
+        return;
+      }
+
+      // Firebase create user
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          // Send email verification
+          user.sendEmailVerification({
+            url: "http://localhost/login.html", // Redirect to login page after verification
+          })
+            .then(() => {
+              alert("Signup successful! A verification email has been sent to your email address. Please verify your email before logging in.");
+              console.log("Verification email sent to:", email);
+
+              // Reload the page after showing the alert
+              window.location.reload();
+            })
+            .catch((error) => {
+              alert(`Error sending verification email: ${error.message}`);
+              console.error("Error sending verification email:", error);
+            });
+
+          // Optional: Update the user's display name
+          user.updateProfile({
+            displayName: name,
+          }).then(() => {
+            console.log("User profile updated successfully!");
+          }).catch((error) => {
+            console.error("Error updating profile:", error);
+          });
+
+          console.log("User details:", user);
+        })
+        .catch((error) => {
+          alert(`Signup error: ${error.message}`);
+          console.error("Error during signup:", error);
+        });
+    });
+  </script>
+</body>
+</html>
