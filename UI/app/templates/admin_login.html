@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: auto; min-height: 80vh;">
+    <div class="col-md-5">
+        <div class="card shadow-lg rounded">
+            <div class="card-header text-white text-center fw-bold" style="background: linear-gradient(90deg, #2c7a48, #3b82f6);">
+                <h3>Admin Login</h3>
+                <p class="mb-0">Enter your credentials to access the admin panel</p>
+            </div>
+            <div class="card-body">
+                <form action="/admin_login" method="post" onsubmit="showLoading()">
+                    <!-- Username Input -->
+                    <div class="mb-4">
+                        <label for="username" class="form-label fw-bold">Username</label>
+                        <input type="text" class="form-control border-primary text-center fw-bold" id="username" name="username"
+                               required placeholder="Enter Admin Username">
+                    </div>
+
+                    <!-- Password Input with Toggle Visibility -->
+                    <div class="mb-4">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control border-primary text-center fw-bold" id="password" name="password"
+                                   required placeholder="Enter Password">
+                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword()">
+                                <i class="bi bi-eye-slash" id="eyeIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn text-white w-100 fw-bold" id="submitBtn"
+                        style="background: linear-gradient(90deg, #2c7a48, #3b82f6);">Login</button>
+
+                    <!-- Loading Spinner -->
+                    <div class="text-center mt-3 d-none" id="loadingSpinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="card-footer text-center">
+                <p class="mb-0">
+                    <a href="/forgot_password" class="text-primary fw-bold">Forgot Password?</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Show Loading Spinner -->
+<script>
+    function showLoading() {
+        document.getElementById("submitBtn").classList.add("disabled");
+        document.getElementById("loadingSpinner").classList.remove("d-none");
+    }
+
+    // Toggle Password Visibility
+    function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = document.getElementById("eyeIcon");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            eyeIcon.classList.remove("bi-eye-slash");
+            eyeIcon.classList.add("bi-eye");
+        } else {
+            passwordInput.type = "password";
+            eyeIcon.classList.remove("bi-eye");
+            eyeIcon.classList.add("bi-eye-slash");
+        }
+    }
+</script>
+{% endblock %}

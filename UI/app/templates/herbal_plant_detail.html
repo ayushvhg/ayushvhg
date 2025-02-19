@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}{{ plant.common_name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    
+    <!-- Back Button -->
+    <a href="{{ url_for('main.herbal_plants') }}" class="btn btn-success mb-3"><i class="bi bi-arrow-left"></i> Back to List</a>
+
+    <div class="row align-items-center">
+        <!-- Image Section -->
+        <div class="col-md-5 text-center">
+            <img src="{{ url_for('static', filename='herbal/' + plant.image_name) }}" 
+                 class="img-fluid rounded shadow-lg animate-image" 
+                 alt="{{ plant.common_name }}">
+        </div>
+
+        <!-- Plant Details Section -->
+        <div class="col-md-7">
+            <div class="card shadow-lg border-0 p-4">
+                <h2 class="fw-bold text-success">{{ plant.common_name }}</h2>
+                <hr>
+                <p><strong>🌱 Scientific Name:</strong> <span class="text-muted">{{ plant.scientific_name }}</span></p>
+                <p><strong>📖 Botanical Name:</strong> <span class="text-muted">{{ plant.botanical_name }}</span></p>
+                <p><strong>📌 Description:</strong> <span class="text-muted">{{ plant.description }}</span></p>
+                <p><strong>💡 Uses:</strong> <span class="text-muted">{{ plant.uses }}</span></p>
+                <p><strong>📍 Origin:</strong> <span class="text-muted">{{ plant.origin }}</span></p>
+                <p><strong>📦 Availability in India:</strong> <span class="text-muted">{{ plant.availability }}</span></p>
+                <p><strong>☀ Climate:</strong> <span class="text-muted">{{ plant.climate }}</span></p>
+                <p><strong>🪴 Soil Type:</strong> <span class="text-muted">{{ plant.soil }}</span></p>
+                <p><strong>ℹ Additional Info:</strong> <span class="text-muted">{{ plant.additional_info }}</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styling -->
+<style>
+    .animate-image {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .animate-image:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 16px rgba(0, 128, 0, 0.3);
+    }
+
+    .card {
+        background: #f9f9f9;
+        border-radius: 10px;
+    }
+
+    .card p {
+        margin-bottom: 8px;
+    }
+</style>
+{% endblock %}

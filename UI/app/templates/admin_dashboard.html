@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">Admin Dashboard</h1>
+
+<!-- User Stats Section -->
+<div class="row mt-4">
+    <div class="col-md-3">
+        <div class="card text-white bg-success shadow-lg">
+            <div class="card-header">Active Users</div>
+            <div class="card-body text-center">
+                <h5 class="card-title display-6">{{ active_users }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-warning shadow-lg">
+            <div class="card-header">Inactive Users</div>
+            <div class="card-body text-center">
+                <h5 class="card-title display-6">{{ inactive_users }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-info shadow-lg">
+            <div class="card-header">Archived Users</div>
+            <div class="card-body text-center">
+                <h5 class="card-title display-6">{{ archived_users }}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-white bg-danger shadow-lg">
+            <div class="card-header">Deleted Users</div>
+            <div class="card-body text-center">
+                <h5 class="card-title display-6">{{ deleted_users }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Section -->
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="card shadow-lg p-3">
+            <div class="card-header bg-dark text-white">Top 5 Users by Predictions</div>
+            <div class="card-body">
+                <canvas id="topUsersChart" style="height:350px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card shadow-lg p-3">
+            <div class="card-header bg-dark text-white">Predictions by Type</div>
+            <div class="card-body">
+                <canvas id="predictionsChart" style="height:350px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chart.js Integration -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Top Users Data from the backend
+    const topUsersData = JSON.parse('{{ top_users_data | tojson | safe }}');
+    const predictionData = JSON.parse('{{ prediction_data | tojson | safe }}');
+
+    // Prepare data for the Top Users chart
+    const topUsersChartConfig = {
+        type: 'bar',
+        data: {
+            labels: topUsersData.labels, // User names
+            datasets: [{
+                label: 'Prediction Counts',
+                data: topUsersData.values, // Prediction counts
+                backgroundColor: 'rgba(0, 102, 204, 0.7)',
+                borderColor: 'rgba(0, 102, 204, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
+    // Prepare data for the Predictions by Type chart
+    const predictionsChartConfig = {
+        type: 'doughnut',
+        data: {
+            labels: predictionData.labels, // Prediction types
+            datasets: [{
+                label: 'Prediction Counts',
+                data: predictionData.values, // Prediction counts
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+                    'rgba(54, 162, 235, 0.7)',
+                    'rgba(255, 206, 86, 0.7)',
+                    'rgba(75, 192, 192, 0.7)',
+                    'rgba(153, 102, 255, 0.7)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    };
+
+    // Render the Top Users chart
+    const topUsersCtx = document.getElementById('topUsersChart').getContext('2d');
+    new Chart(topUsersCtx, topUsersChartConfig);
+
+    // Render the Predictions by Type chart
+    const predictionsCtx = document.getElementById('predictionsChart').getContext('2d');
+    new Chart(predictionsCtx, predictionsChartConfig);
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Herbal Result{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Herbal Prediction Result</h2>
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            Prediction Details
+        </div>
+        <div class="card-body">
+            <p class="mb-2"><strong>Uploaded Image:</strong></p>
+            <img src="/static/uploads/{{ image_filename }}" alt="Uploaded Image" class="img-thumbnail mb-3" style="max-width: 300px;">
+            <hr>
+            <p class="text-success"><strong>Predicted Label:</strong> {{ predicted_label }}</p>
+            <p class="text-success"><strong>Predicted Probabilities:</strong> {{ prediction_prob }}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="/api/predict/herbal" class="btn btn-primary">Try Another Prediction</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

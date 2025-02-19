@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: auto; min-height: 100vh;">
+    <div class="col-md-6">
+        <div class="card shadow-lg rounded">
+            <div class="card-header text-white text-center fw-bold" style="background: linear-gradient(90deg, #3b7a57, #6ca965);">
+                <h3>Sign Up</h3>
+            </div>
+            <div class="card-body">
+                <form action="/signup" method="post" onsubmit="showLoading()">
+                    <!-- Name Field -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label fw-bold">Full Name</label>
+                        <input type="text" class="form-control border-success" id="name" name="name" required>
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control border-success" id="email" name="email" required>
+                    </div>
+
+                    <!-- Password Field with Toggle -->
+                    <div class="mb-3 position-relative">
+                        <label for="password" class="form-label fw-bold">Password</label>
+                        <div class="input-group">
+                            <input type="password" class="form-control border-success" id="password" name="password" required>
+                            <span class="input-group-text" onclick="togglePassword()" style="cursor: pointer;">
+                                <i class="bi bi-eye-slash" id="toggleIcon"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Field -->
+                    <div class="mb-3">
+                        <label for="mobile" class="form-label fw-bold">Mobile</label>
+                        <input type="text" class="form-control border-success" id="mobile" name="mobile" required>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="mb-3">
+                        <label for="dob" class="form-label fw-bold">Date of Birth</label>
+                        <input type="date" class="form-control border-success" id="dob" name="dob" required>
+                    </div>
+
+                    <!-- Security Question -->
+                    <div class="mb-3">
+                        <label for="security_question" class="form-label fw-bold">Security Question</label>
+                        <input type="text" class="form-control border-success" id="security_question" name="security_question" required>
+                    </div>
+
+                    <!-- Security Answer -->
+                    <div class="mb-3">
+                        <label for="security_answer" class="form-label fw-bold">Security Answer</label>
+                        <input type="text" class="form-control border-success" id="security_answer" name="security_answer" required>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn text-white w-100 fw-bold" id="submitBtn"
+                        style="background: linear-gradient(90deg, #3b7a57, #6ca965);">Sign Up</button>
+
+                    <!-- Loading Spinner -->
+                    <div class="text-center mt-3 d-none" id="loadingSpinner">
+                        <div class="spinner-border text-success" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-0">Already have an account? <a href="/signin" class="text-success fw-bold">Sign In</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Password Toggle Script -->
+<script>
+    function togglePassword() {
+        let passwordField = document.getElementById("password");
+        let toggleIcon = document.getElementById("toggleIcon");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleIcon.classList.remove("bi-eye-slash");
+            toggleIcon.classList.add("bi-eye");
+        } else {
+            passwordField.type = "password";
+            toggleIcon.classList.remove("bi-eye");
+            toggleIcon.classList.add("bi-eye-slash");
+        }
+    }
+
+    function showLoading() {
+        document.getElementById("submitBtn").classList.add("disabled");
+        document.getElementById("loadingSpinner").classList.remove("d-none");
+    }
+</script>
+{% endblock %}

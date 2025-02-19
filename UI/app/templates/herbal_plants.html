@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Herbal Plants{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center fw-bold text-success">🌿 Herbal Plants 🌿</h1>
+    <p class="text-center text-muted">Explore medicinal plants with their benefits and details.</p>
+
+    <!-- Search Bar -->
+    <div class="input-group mb-4">
+        <span class="input-group-text bg-success text-white"><i class="bi bi-search"></i></span>
+        <input type="text" id="plantSearch" class="form-control" placeholder="Search for a plant..." onkeyup="searchPlants()">
+    </div>
+
+    <!-- Plants Grid -->
+    <div class="row" id="plantCards">
+        {% for plant in plants %}
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 plant-card">
+            <div class="card shadow-lg border-0 rounded-3 animate-card">
+                <img src="{{ url_for('static', filename='herbal/' + plant.image_name) }}" class="card-img-top img-fluid" alt="{{ plant.common_name }}">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold text-success">{{ plant.common_name }}</h5>
+                    <a href="{{ url_for('main.herbal_plant_detail', plant_id=plant.id) }}" class="btn btn-success btn-sm shadow-sm">View Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Search Functionality -->
+<script>
+    function searchPlants() {
+        let input = document.getElementById("plantSearch").value.toLowerCase();
+        let cards = document.querySelectorAll(".plant-card");
+
+        cards.forEach(card => {
+            let name = card.querySelector(".card-title").innerText.toLowerCase();
+            card.style.display = name.includes(input) ? "block" : "none";
+        });
+    }
+</script>
+
+<!-- Custom Styles -->
+<style>
+    .animate-card {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .animate-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 8px 16px rgba(0, 128, 0, 0.3);
+    }
+
+    .card img {
+        height: 180px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+</style>
+{% endblock %}

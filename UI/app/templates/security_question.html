@@ -1,0 +1,22 @@
+<!-- Forgot Password Page: security_question.html -->
+{% extends "base.html" %}
+{% block title %}Security Question{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">Forgot Password</div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="security_answer" class="form-label">{{ question }}</label>
+                        <input type="text" class="form-control" id="security_answer" name="security_answer" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

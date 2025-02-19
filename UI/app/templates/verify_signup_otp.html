@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Verify Signup OTP{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="height: auto; min-height: 80vh;">
+    <div class="col-md-5">
+        <div class="card shadow-lg rounded">
+            <div class="card-header text-white text-center fw-bold" style="background: linear-gradient(90deg, #2c7a48, #3b82f6);">
+                <h3>Verify Your OTP</h3>
+                <p class="mb-0">Enter the OTP sent to your registered email</p>
+            </div>
+            <div class="card-body">
+                <form action="/verify_signup_otp" method="post" onsubmit="showLoading()">
+                    <!-- OTP Input Field -->
+                    <div class="mb-4">
+                        <label for="otp" class="form-label fw-bold">Enter OTP</label>
+                        <input type="text" class="form-control border-primary text-center fw-bold" id="otp" name="otp" required autofocus>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn text-white w-100 fw-bold" id="submitBtn"
+                        style="background: linear-gradient(90deg, #2c7a48, #3b82f6);">Verify OTP</button>
+
+                    <!-- Loading Spinner -->
+                    <div class="text-center mt-3 d-none" id="loadingSpinner">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Resend OTP with Timer -->
+            <div class="card-footer text-center">
+                <p class="mb-0">
+                    Didn't receive OTP? <br>
+                    <span id="resendBtnWrapper">
+                        <button class="btn btn-link text-primary fw-bold" id="resendBtn" disabled>Resend OTP</button>
+                        <span id="timer" class="text-danger"></span>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Auto Focus & Show Loading on Submit -->
+<script>
+    document.getElementById("otp").focus(); // Autofocus on OTP field
+
+    function showLoading() {
+        document.getElementById("submitBtn").classList.add("disabled");
+        document.getElementById("loadingSpinner").classList.remove("d-none");
+    }
+
+    // Resend OTP Timer
+    let timeLeft = 30; // Resend OTP timer (in seconds)
+    const resendBtn = document.getElementById("resendBtn");
+    const timerDisplay = document.getElementById("timer");
+
+    function updateTimer() {
+        if (timeLeft > 0) {
+            timerDisplay.innerText = `Try again in ${timeLeft}s`;
+            timeLeft--;
+            setTimeout(updateTimer, 1000);
+        } else {
+            resendBtn.disabled = false;
+            timerDisplay.innerText = "";
+        }
+    }
+
+    // Start Timer on Page Load
+    updateTimer();
+</script>
+{% endblock %}

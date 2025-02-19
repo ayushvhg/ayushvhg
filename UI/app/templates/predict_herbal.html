@@ -1,0 +1,18 @@
+<!-- Predict Herbal Disease Page: predict_herbal.html -->
+{% extends "base.html" %}
+{% block title %}Predict Herbal{% endblock %}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Predict Herbal Leaf</h2>
+    <form action="/api/predict/herbal" method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="herbalImage" class="form-label">Upload Herbal Image</label>
+            <input type="file" class="form-control" id="herbalImage" name="herbalImage" accept="image/*" required>
+            <div class="invalid-feedback">Please upload a valid image file.</div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Predict</button>
+    </form>
+</div>
+
+{% endblock %}
