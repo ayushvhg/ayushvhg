@@ -14,7 +14,7 @@ def create_app():
     # Configurations
     app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv(
         'DATABASE_URI',
-        'mysql+pymysql://root:root@localhost/herbal'
+        'mysql+pymysql://root:Root@00123@localhost/herbal'
     )
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your_secret_key')
