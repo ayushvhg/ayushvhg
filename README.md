@@ -34,13 +34,13 @@ Features
  Disease Based medicine recommendation Module: Suggests Ayurvedic remedies, including formulations, usage instructions, and associated yoga practices.
  Interactive UI: Flaskbased application offering userfriendly navigation and engagement.
 
- Visuals: Add Figma screenshots or mockups for features
-
+ Visuals:For visuals check out the figma design link provided in the end of the
+file.
 
 
 Technologies Used
  Programming Languages: Python
- Libraries: Scikitlearn, TensorFlow, Pandas, NumPy, Matplotlib, Seaborn
+ Libraries: Scikitlearn, TensorFlow, Pandas, NumPy, Matplotlib, Seaborn ,
  Deployment Platforms: Flaskbased UI
  Visualization Tools: Figma
 
@@ -62,21 +62,13 @@ A highlevel overview of the system’s workflow:
 
  Model Workflow
  Models Used: VGGNet, ResNet, EfficientNet (Transfer Learning).
- Workflow Steps: Data preprocessing ? Feature extraction ? Model training ? Evaluation ? Deployment.
-
- Workflow Diagram: Add Figmabased workflow diagram
-
-
+ Workflow Steps: Data preprocessing -> Feature extraction ->  Model training
+ -> Evaluation -> Deployment.
 
  Implementation Details
  Feature Engineering: Handling missing values, normalization techniques.
  Optimization Strategies: Adam optimizer, early stopping.
- Technical Insights: CNN architecture, transfer learning implementation.
-
- Sequence Diagrams: Add Figma sequence diagrams for clarity
-
-
-
+ Technical Insights: CNN architecture, transfer learning implementation. 
  Results
  Metrics: Accuracy, F1Score, ROC Curves.
  Visualization: Confusion Matrix, evaluation reports, model comparisons.
