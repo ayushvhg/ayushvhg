@@ -73,7 +73,7 @@ A highlevel overview of the system’s workflow:
  Metrics: Accuracy, F1Score, ROC Curves.
  Visualization: Confusion Matrix, evaluation reports, model comparisons.
 
- Graphs/Charts: Add visual examples
+ Graphs/Charts: 
 
 
 
@@ -90,11 +90,11 @@ Installation
  Steps:
   1. Upload an image of a plant for identification.
   2. Search for remedies by disease.
- Visual Guide: Add Figmabased UI wireframes for reference
+ Visual Guide: 
 
 
 
- Future Enhancements
+ Future Enhancements Planned 
  Realtime Identification: Integrate live camera detection for instant plant identification.
  Mobile App Development: Expand the application to smartphones.
  Enhanced Remedies: Incorporate a wider range of Ayurvedic treatments.
@@ -102,7 +102,7 @@ Installation
 
 
 Contributing
-We welcome contributions to improve the AYUSH Virtual Herbal Garden. Please follow these steps:
+We heartly welcome contributions to improve the AYUSH Virtual Herbal Garden. Please follow these steps:
 1. Fork the repository.
 2. Create a new branch for your feature/bug fix.
 3. Submit a pull request with detailed documentation.
