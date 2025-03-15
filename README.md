@@ -21,13 +21,10 @@ An Interactive Guide to Medicinal Plants and Ayurvedic Remedies with AI Powered 
 Introduction
 The AYUSH Virtual Herbal Garden aims to revolutionize the identification and utilization of medicinal plants used in AYUSH systems—Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy. Leveraging AI-powered technologies, the project enhances precision and accessibility in identifying and utilizing medicinal plants.
 
- Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
- Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
+Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
+Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
 
- Diagram:
- 
-
-
+Diagram:
 
 Features
  Plant Identification Module: Upload plant images for identification and detailed information, including scientific names and geographic locations.
