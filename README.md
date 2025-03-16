@@ -36,6 +36,11 @@ Users can explore a rich digital collection of medicinal plants, learning about 
 
 Based on user-inputted health concerns, the platform suggests herbal medicines and formulations derived from Ayurvedic classical texts and repositories, promoting natural healing alternatives.
 
+3.⁠ ⁠Yoga Posture Suggestions for Health Issue Cure
+
+Incorporating holistic well-being, the platform provides recommended yoga postures that aid in curing specific health conditions, aligning with traditional healing practices.
+
+
 
 
  Visuals:For visuals check out the figma design link provided in the end of the
