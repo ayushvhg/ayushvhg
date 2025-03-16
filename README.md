@@ -24,7 +24,8 @@ The AYUSH Virtual Herbal Garden aims to revolutionize the identification and uti
 Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
 Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
 
-Diagram:
+Diagram:![WhatsApp Image 2025-03-16 at 11 57 57](https://github.com/user-attachments/assets/8ff1fa6a-90ca-4348-8cdf-a4426c3c6f91)
+
 
 Key Features
 
