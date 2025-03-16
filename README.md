@@ -74,8 +74,7 @@ To ensure accessibility for a diverse audience, the platform currently supports 
 Users can explore detailed guides on preparing herbal teas, including the benefits of each tea blend, ingredients, and brewing methods. Whether it's a soothing chamomile tea for relaxation or a ginger-turmeric tea for immunity, this feature promotes healthy lifestyle choices through herbal remedies.
 
 
- Visuals:For visuals check out the figma design link provided in the end of the
-file.
+ Visuals:![WhatsApp Image 2025-03-16 at 11 57 57](https://github.com/user-attachments/assets/249709ca-d9e2-43b2-994c-6416841639b9)
 
 
 Technologies Used
