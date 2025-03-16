@@ -65,6 +65,11 @@ To improve user experience, a text-to-speech function is included, allowing user
 
 Each medicinal plant profile includes a QR code that users can generate and download, making it easy to share and access plant information instantly.
 
+10.⁠ ⁠Multi-Language Translation
+
+To ensure accessibility for a diverse audience, the platform currently supports English, Telugu, and Hindi, with potential for expansion into more languages in the future.
+
+
  Visuals:For visuals check out the figma design link provided in the end of the
 file.
 
