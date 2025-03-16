@@ -61,6 +61,9 @@ The platform supports voice-based search, enabling users to find information sim
 To improve user experience, a text-to-speech function is included, allowing users to listen to plant descriptions, medicinal uses, and recommendations instead of reading them.
 
 
+9.⁠ ⁠QR Code Generation with Download Option
+
+Each medicinal plant profile includes a QR code that users can generate and download, making it easy to share and access plant information instantly.
 
  Visuals:For visuals check out the figma design link provided in the end of the
 file.
