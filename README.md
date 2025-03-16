@@ -52,6 +52,13 @@ An integrated feedback system allows users to share their experiences, report is
 
 Users can easily search and filter medicinal plants based on name, benefits, health concerns, and Ayurvedic classifications, ensuring quick access to relevant information.
 
+7.⁠ ⁠Voice-Based Search Function
+
+The platform supports voice-based search, enabling users to find information simply by speaking their queries, enhancing accessibility and ease of use.
+
+8.⁠ ⁠Text-to-Speech Feature
+
+To improve user experience, a text-to-speech function is included, allowing users to listen to plant descriptions, medicinal uses, and recommendations instead of reading them.
 
 
 
