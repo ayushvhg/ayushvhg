@@ -26,10 +26,13 @@ Solution: AI and Transfer Learning models enable accurate and efficient plant id
 
 Diagram:
 
-Features
- Plant Identification Module: Upload plant images for identification and detailed information, including scientific names and geographic locations.
- Disease Based medicine recommendation Module: Suggests Ayurvedic remedies, including formulations, usage instructions, and associated yoga practices.
- Interactive UI: Flaskbased application offering userfriendly navigation and engagement.
+Key Features
+
+ 1.⁠ ⁠Virtual Herbal Garden
+
+Users can explore a rich digital collection of medicinal plants, learning about their properties, benefits, and traditional uses. The garden provides an interactive visual experience that mimics a real-world herbal environment.
+
+
 
  Visuals:For visuals check out the figma design link provided in the end of the
 file.
