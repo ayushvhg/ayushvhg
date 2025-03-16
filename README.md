@@ -48,6 +48,10 @@ Users can upload images of medicinal plants, and the system, using machine learn
 
 An integrated feedback system allows users to share their experiences, report issues, or suggest improvements, fostering community engagement and continuous enhancement of the platform.
 
+6.⁠ ⁠Search and Filter Functionality
+
+Users can easily search and filter medicinal plants based on name, benefits, health concerns, and Ayurvedic classifications, ensuring quick access to relevant information.
+
 
 
 
