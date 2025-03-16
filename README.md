@@ -69,6 +69,9 @@ Each medicinal plant profile includes a QR code that users can generate and down
 
 To ensure accessibility for a diverse audience, the platform currently supports English, Telugu, and Hindi, with potential for expansion into more languages in the future.
 
+11. Herbal Teas Preparation and Benefits ☕
+Users can explore detailed guides on preparing herbal teas, including the benefits of each tea blend, ingredients, and brewing methods. Whether it's a soothing chamomile tea for relaxation or a ginger-turmeric tea for immunity, this feature promotes healthy lifestyle choices through herbal remedies.
+
 
  Visuals:For visuals check out the figma design link provided in the end of the
 file.
