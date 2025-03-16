@@ -32,6 +32,10 @@ Key Features
 
 Users can explore a rich digital collection of medicinal plants, learning about their properties, benefits, and traditional uses. The garden provides an interactive visual experience that mimics a real-world herbal environment.
 
+2.⁠ ⁠Medicine Recommendation for Health Issues
+
+Based on user-inputted health concerns, the platform suggests herbal medicines and formulations derived from Ayurvedic classical texts and repositories, promoting natural healing alternatives.
+
 
 
  Visuals:For visuals check out the figma design link provided in the end of the
