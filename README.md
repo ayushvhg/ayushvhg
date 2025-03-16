@@ -74,7 +74,7 @@ To ensure accessibility for a diverse audience, the platform currently supports 
 Users can explore detailed guides on preparing herbal teas, including the benefits of each tea blend, ingredients, and brewing methods. Whether it's a soothing chamomile tea for relaxation or a ginger-turmeric tea for immunity, this feature promotes healthy lifestyle choices through herbal remedies.
 
 
- Visuals:![Uploading WhatsApp Image 2025-03-16 at 12.21.33.jpeg…]()
+ Visuals: ![Uploading WhatsApp Image 2025-03-16 at 12.21.33.jpeg…]()
 
 
 
