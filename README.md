@@ -40,6 +40,14 @@ Based on user-inputted health concerns, the platform suggests herbal medicines a
 
 Incorporating holistic well-being, the platform provides recommended yoga postures that aid in curing specific health conditions, aligning with traditional healing practices.
 
+ 4.⁠ ⁠Medicinal Plant Identification by Image Upload
+
+Users can upload images of medicinal plants, and the system, using machine learning-based image recognition, identifies the plant and provides detailed information on its medicinal properties and uses.
+
+ 5.⁠ ⁠User Feedback System
+
+An integrated feedback system allows users to share their experiences, report issues, or suggest improvements, fostering community engagement and continuous enhancement of the platform.
+
 
 
 
