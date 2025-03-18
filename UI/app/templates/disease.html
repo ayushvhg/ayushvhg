@@ -12,7 +12,9 @@
             <div class="mb-3">
                 <label for="disease" class="form-label fw-bold">Disease</label>
                 <select name="disease" class="form-select shadow-sm">
+                    <option value=" "></option>
                     {% for disease in diseases %}
+                    
                     <option value="{{ disease.id }}">{{ disease.disease_name }}</option>
                     {% endfor %}
                 </select>
@@ -26,7 +28,21 @@
     <div class="card shadow-lg p-4 mt-5">
         <h3 class="text-center text-primary fw-bold">{{ selected_disease.disease_name }}</h3>
         <p><strong>📖 Description:</strong> {{ selected_disease.description }}</p>
-        <p><strong>🌿 Natural Therapy:</strong> {{ selected_disease.natural_therapy }}</p>
+        <p><strong>🌿 Natural Therapy:</strong></p>
+<div class="row">
+    {% for image in selected_disease.therapy_images.split(',') %}
+        <div class="col-md-3 text-center">
+            <img src="{{ url_for('static', filename='therapies/' + image.strip()) }}" 
+                 class="img-fluid rounded shadow-lg mt-3" 
+                 alt="Natural Therapy">
+            <p class="mt-2"><strong>{{ image.strip().split('.')[0]|replace('_', ' ')|title }}</strong></p>
+        </div>
+    {% endfor %}
+</div>
+
+
+
+
 
         <!-- Yoga Recommendations -->
         <h4 class="text-center text-warning mt-4">🧘 Yoga Recommendations</h4>
