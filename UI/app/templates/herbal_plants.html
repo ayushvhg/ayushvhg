@@ -10,6 +10,7 @@
     <div class="input-group mb-4">
         <span class="input-group-text bg-success text-white"><i class="bi bi-search"></i></span>
         <input type="text" id="plantSearch" class="form-control" placeholder="Search for a plant..." onkeyup="searchPlants()">
+        <button id="voiceSearchBtn" class="btn btn-success"><i class="bi bi-mic text-white"></i></button>
     </div>
 
     <!-- Plants Grid -->
@@ -39,6 +40,43 @@
             card.style.display = name.includes(input) ? "block" : "none";
         });
     }
+        document.addEventListener("DOMContentLoaded", function() {
+            const voiceSearchBtn = document.getElementById("voiceSearchBtn");
+            const searchInput = document.getElementById("plantSearch");
+    
+            // Check if the browser supports SpeechRecognition
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (SpeechRecognition) {
+                const recognition = new SpeechRecognition();
+                recognition.continuous = false;
+                recognition.lang = "en-US";
+    
+                voiceSearchBtn.addEventListener("click", () => {
+                    recognition.start();
+                    voiceSearchBtn.classList.add("btn-warning"); // Indicate listening
+                });
+    
+                recognition.onresult = (event) => {
+                    const transcript = event.results[0][0].transcript;
+                    searchInput.value = transcript;
+                    searchPlants(); // Trigger search
+                };
+    
+                recognition.onspeechend = () => {
+                    recognition.stop();
+                    voiceSearchBtn.classList.remove("btn-warning");
+                };
+    
+                recognition.onerror = (event) => {
+                    console.error("Speech recognition error:", event.error);
+                    voiceSearchBtn.classList.remove("btn-warning");
+                };
+            } else {
+                voiceSearchBtn.disabled = true;
+                voiceSearchBtn.title = "Speech Recognition not supported in this browser.";
+            }
+        });
+    
 </script>
 
 <!-- Custom Styles -->
