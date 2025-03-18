@@ -8,7 +8,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/styles.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+     
     <!-- Google Font for a clean, professional look -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -44,14 +45,59 @@
             bottom: 0;
             left: 0;
         }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        
+        .dark-mode .card {
+            background-color: #1e1e1e;
+            color: white;
+            border: 1px solid #444;
+        }
+        
+        .dark-mode .btn-success {
+            background-color: #0f5132;
+        }
+        
+        .dark-mode .container {
+            background-color: #1a1a1a;
+        }
+        
     </style>
 </head>
 <body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const darkModeToggle = document.getElementById("darkModeToggle");
+        const body = document.body;
+
+        // Check if dark mode is saved in LocalStorage
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.innerText = "☀️";
+        }
+
+        darkModeToggle.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
+
+            // Save dark mode preference
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.innerText = "☀️";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.innerText = "🌙";
+            }
+        });
+    });
+</script>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #228B22;">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">🌿 Herbal Leaf Prediction</a>
+            <a class="navbar-brand fw-bold" href="/">🌿 Herbal Leaf Explorer</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -61,6 +107,7 @@
                         <li class="nav-item"><a class="nav-link" href="/admin_dashboard">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="/manage_users">Manage Users</a></li>
                         <li class="nav-item"><a class="nav-link" href="/prediction_history">Prediction History</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/user_feedback">User_feedback</a></li>
                         <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="/logout">Logout</a></li>
                     {% elif user %}
                         {% if user.status == 'active' %}
@@ -68,6 +115,11 @@
                             <li class="nav-item"><a class="nav-link" href="/herbal_plants">Herbal Info</a></li>
                             <li class="nav-item"><a class="nav-link" href="/diseases">Diseases Info</a></li>
                             <li class="nav-item"><a class="nav-link" href="/api/predict/herbal">Herbal Prediction</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('main.herbal_teas') }}">Herbal Teas</a>
+                            </li>
+                            
                             <li class="nav-item"><a class="nav-link" href="#">👤 {{ user.name }}</a></li>
                             <li class="nav-item"><a class="nav-link btn btn-danger text-white" href="/logout">Logout</a></li>
                         {% elif user.status == 'archived' %}
@@ -80,6 +132,8 @@
                         <li class="nav-item"><a class="nav-link" href="/admin_login">Admin Login</a></li>
                     {% endif %}
                 </ul>
+                <button id="darkModeToggle" class="btn btn-dark">🌙</button>
+
             </div>
         </div>
     </nav>
@@ -105,7 +159,7 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto">
-        <p class="mb-0">🌱 **Herbal Leaf Classification System** | All Rights Reserved © 2025</p>
+        <p class="mb-0">🌱 **Herbal Leaf Exploration System** | All Rights Reserved © 2025</p>
     </footer>
 
     <!-- Bootstrap JS -->
