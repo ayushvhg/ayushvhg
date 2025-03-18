@@ -6,36 +6,345 @@
     
     <!-- Back Button -->
     <a href="{{ url_for('main.herbal_plants') }}" class="btn btn-success mb-3"><i class="bi bi-arrow-left"></i> Back to List</a>
-
+    
     <div class="row align-items-center">
-        <!-- Image Section -->
+        <!-- Normal Image Display -->
         <div class="col-md-5 text-center">
+            <!-- Clickable Image -->
             <img src="{{ url_for('static', filename='herbal/' + plant.image_name) }}" 
+                 id="plantImage"
                  class="img-fluid rounded shadow-lg animate-image" 
-                 alt="{{ plant.common_name }}">
+                 alt="{{ plant.common_name }}"
+                 onclick="openImageModal()">
         </div>
+
+
 
         <!-- Plant Details Section -->
         <div class="col-md-7">
             <div class="card shadow-lg border-0 p-4">
-                <h2 class="fw-bold text-success">{{ plant.common_name }}</h2>
+                <h2 class="fw-bold text-success">{{ plant.common_name }}
+                <button id="readAloudBtn" class="btn btn-success ms-3">
+                    <i class="bi bi-volume-up"></i> <!-- Speaker Icon -->
+                </button></h2>
+                <div class="mb-3">
+                    <label for="languageSelect"><strong>Select Language:</strong></label>
+                    <select id="languageSelect" class="form-select">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="te">తెలుగు (Telugu)</option>
+                    </select>
+                </div>
                 <hr>
-                <p><strong>🌱 Scientific Name:</strong> <span class="text-muted">{{ plant.scientific_name }}</span></p>
-                <p><strong>📖 Botanical Name:</strong> <span class="text-muted">{{ plant.botanical_name }}</span></p>
-                <p><strong>📌 Description:</strong> <span class="text-muted">{{ plant.description }}</span></p>
-                <p><strong>💡 Uses:</strong> <span class="text-muted">{{ plant.uses }}</span></p>
-                <p><strong>📍 Origin:</strong> <span class="text-muted">{{ plant.origin }}</span></p>
-                <p><strong>📦 Availability in India:</strong> <span class="text-muted">{{ plant.availability }}</span></p>
-                <p><strong>☀ Climate:</strong> <span class="text-muted">{{ plant.climate }}</span></p>
-                <p><strong>🪴 Soil Type:</strong> <span class="text-muted">{{ plant.soil }}</span></p>
-                <p><strong>ℹ Additional Info:</strong> <span class="text-muted">{{ plant.additional_info }}</span></p>
+                <p><strong>🌱 Scientific Name:</strong> <span id="plantScientific" class="text-muted" data-original="{{ plant.scientific_name }}">{{ plant.scientific_name }}</span></p>
+                <p><strong>📖 Botanical Name:</strong> <span id="plantBotanical" class="text-muted" data-original="{{ plant.botanical_name }}">{{ plant.botanical_name }}</span></p>
+                <p><strong>📌 Description:</strong> <span id="plantDesc" class="text-muted" data-original="{{ plant.description }}">{{ plant.description }}</span></p>
+                <p><strong>💡 Uses:</strong> <span id="plantUses" class="text-muted" data-original="{{ plant.uses }}">{{ plant.uses }}</span></p>
+                <p><strong>📍 Origin:</strong> <span id="plantOrigin" class="text-muted" data-original="{{ plant.origin }}">{{ plant.origin }}</span></p>
+                <p><strong>📦 Availability in India:</strong> <span id="plantAvailability" class="text-muted" data-original="{{ plant.availability }}">{{ plant.availability }}</span></p>
+                <p><strong>☀ Climate:</strong> <span id="plantClimate" class="text-muted" data-original="{{ plant.climate }}">{{ plant.climate }}</span></p>
+                <p><strong>🪴 Soil Type:</strong> <span id="plantSoil" class="text-muted" data-original="{{ plant.soil }}">{{ plant.soil }}</span></p>
+                <p><strong>ℹ Additional Info:</strong> <span id="plantAdditionalInfo" class="text-muted" data-original="{{ plant.additional_info }}">{{ plant.additional_info }}</span></p>
+
             </div>
         </div>
     </div>
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="{{ url_for('static', filename='herbal/' + plant.image_name) }}">
+            <!--<div class="controls">
+                <button onclick="zoomIn()">Zoom In</button>
+                <button onclick="zoomOut()">Zoom Out</button>
+                <button onclick="rotateImage()">Rotate</button>
+            </div>-->
+        </div>
+    </div>
+    <!-- QR Code Section -->
+<div class="text-center mt-4">
+    <h5>🔗 Scan to View Plant Details</h5>
+    <img src="{{ url_for('main.generate_qr', plant_id=plant.id) }}" alt="QR Code" class="qr-code">
+
+    <br>
+    <a href="{{ url_for('main.generate_qr', plant_id=plant.id) }}" download="plant_qr.png" class="btn btn-success btn-sm mt-2">📥 Download QR</a>
 </div>
+<br>
+</div>
+<script>
+  
+        document.getElementById("languageSelect").addEventListener("change", function() {
+            let selectedLang = this.value;
+    
+            // Select all the fields to be translated
+            let elementsToTranslate = [
+                document.getElementById("plantScientific"),
+                document.getElementById("plantBotanical"),
+                document.getElementById("plantDesc"),
+                document.getElementById("plantUses"),
+                document.getElementById("plantOrigin"),
+                document.getElementById("plantAvailability"),
+                document.getElementById("plantClimate"),
+                document.getElementById("plantSoil"),
+                document.getElementById("plantAdditionalInfo")
+            ];
+    
+            if (selectedLang === "en") {
+                // Restore original English text from 'data-original' attribute
+                elementsToTranslate.forEach(el => {
+                    el.innerText = el.getAttribute("data-original");
+                });
+                return; // Stop translation if switching back to English
+            }
+    
+            // ** Step 1: Add Context to Botanical & Scientific Names **
+            let textArray = elementsToTranslate.map((el, index) => {
+                if (index === 0) return "Scientific Name is: " + el.getAttribute("data-original"); // Force translation
+                if (index === 1) return "Botanical Name is: " + el.getAttribute("data-original"); // Force translation
+                return el.getAttribute("data-original");
+            }).join(" ||| ");
+    
+            // ** Step 2: Translate to English first (if not already in English) **
+            let intermediateLang = selectedLang !== "en" ? "en" : selectedLang;
+            let urlToEnglish = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${intermediateLang}&dt=t&q=${encodeURIComponent(textArray)}`;
+    
+            fetch(urlToEnglish)
+                .then(response => response.json())
+                .then(data => {
+                    let translatedTextToEnglish = data[0].map(item => item[0]).join("");
+                    let translatedSentencesToEnglish = translatedTextToEnglish.split("|||");
+    
+                    // If the target language is English, apply the translation and stop
+                    if (selectedLang === "en") {
+                        elementsToTranslate.forEach((el, index) => {
+                            el.innerText = translatedSentencesToEnglish[index] || el.getAttribute("data-original");
+                        });
+                        return;
+                    }
+    
+                    // ** Step 3: Translate from English to the selected language **
+                    let textForFinalTranslation = translatedSentencesToEnglish.join(" ||| ");
+                    let urlToFinalLang = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${selectedLang}&dt=t&q=${encodeURIComponent(textForFinalTranslation)}`;
+    
+                    return fetch(urlToFinalLang);
+                })
+                .then(response => response.json())
+                .then(data => {
+                    let translatedTextFinal = data[0].map(item => item[0]).join("");
+                    let translatedSentencesFinal = translatedTextFinal.split("|||");
+    
+                    elementsToTranslate.forEach((el, index) => {
+                        el.innerText = translatedSentencesFinal[index]?.replace("Scientific Name is: ", "").replace("Botanical Name is: ", "") || el.getAttribute("data-original");
+                    });
+                })
+                .catch(error => console.error("Translation error:", error));
+        });
+    
+    
+    
+        let scale = 1; // For zoom
+        let rotation = 0; // For rotation
+        let isDragging = false, startX, startY, currentX = 0, currentY = 0;
+    
+        // Open Image Modal
+        function openImageModal() {
+            document.getElementById("imageModal").style.display = "block";
+            scale = 1;
+            rotation = 0;
+            document.getElementById("modalImage").style.transform = "scale(1) rotate(0deg)";
+        }
+    
+        // Close Image Modal
+        function closeImageModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+    
+        // Zoom In Function
+        function zoomIn() {
+            scale += 0.2;
+            document.getElementById("modalImage").style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+        }
+    
+        // Zoom Out Function
+        function zoomOut() {
+            if (scale > 0.5) {
+                scale -= 0.2;
+                document.getElementById("modalImage").style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+            }
+        }
+    
+        // Rotate Image
+        function rotateImage() {
+            rotation += 90;
+            document.getElementById("modalImage").style.transform = `scale(${scale}) rotate(${rotation}deg)`;
+        }
+    
+        // Drag to Pan Functionality
+        const modalImage = document.getElementById("modalImage");
+        modalImage.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+            modalImage.style.cursor = "grabbing";
+        });
+    
+        modalImage.addEventListener("mousemove", (e) => {
+            if (!isDragging) return;
+            currentX = e.clientX - startX;
+            currentY = e.clientY - startY;
+            modalImage.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale}) rotate(${rotation}deg)`;
+        });
+    
+        modalImage.addEventListener("mouseup", () => {
+            isDragging = false;
+            modalImage.style.cursor = "grab";
+        });
+    
+        modalImage.addEventListener("mouseleave", () => {
+            isDragging = false;
+            modalImage.style.cursor = "grab";
+        });
+   
+    
+
+    let isSpeaking = false; // Track speech state
+    const speech = new SpeechSynthesisUtterance();
+    
+    document.getElementById("readAloudBtn").addEventListener("click", function() {
+        const btn = this; // Reference the button
+
+        // If speaking, stop it
+        if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            btn.style.backgroundColor = "#198754"; // Reset button to green
+            btn.style.color = "white";
+            isSpeaking = false;
+            return;
+        }
+
+        let name = document.querySelector(".fw-bold.text-success")?.innerText || "No name available.";
+        let scientificName = document.querySelector("p:nth-of-type(1) span")?.innerText || "No scientific name available.";
+        let botanicalName = document.querySelector("p:nth-of-type(2) span")?.innerText || "No botanical name available.";
+        let description = document.querySelector("p:nth-of-type(3) span")?.innerText || "No description available.";
+        let uses = document.querySelector("p:nth-of-type(4) span")?.innerText || "No uses available.";
+        let origin = document.querySelector("p:nth-of-type(5) span")?.innerText || "No origin information available.";
+        let availability = document.querySelector("p:nth-of-type(6) span")?.innerText || "No availability details available.";
+        let climate = document.querySelector("p:nth-of-type(7) span")?.innerText || "No climate information available.";
+        let soil = document.querySelector("p:nth-of-type(8) span")?.innerText || "No soil type available.";
+        let additionalInfo = document.querySelector("p:nth-of-type(9) span")?.innerText || "No additional information available.";
+
+        let textToRead = `Plant Name: ${name}. Scientific Name: ${scientificName}. Botanical Name: ${botanicalName}. 
+                          Description: ${description}. Uses: ${uses}. Origin: ${origin}. 
+                          Availability: ${availability}. Climate: ${climate}. Soil Type: ${soil}. 
+                          Additional Info: ${additionalInfo}.`;
+
+        speech.text = textToRead;
+        speech.lang = "en-US";
+
+        // Change button color when speaking
+        btn.style.backgroundColor = "white"; // Change to red when speaking
+        btn.style.color = "green";
+        isSpeaking = true;
+
+        // Handle speech events
+        speech.onend = () => {
+            btn.style.backgroundColor = "#198754"; // Reset to green when done
+            btn.style.color = "white";
+            isSpeaking = false;
+        };
+
+        speech.onerror = (event) => {
+            console.error("Speech error:", event.error);
+            btn.style.backgroundColor = "#198754"; // Reset if there's an error
+            btn.style.color = "white";
+            isSpeaking = false;
+        };
+
+        window.speechSynthesis.cancel(); // Stop any ongoing speech
+        window.speechSynthesis.speak(speech);
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        pannellum.viewer('plantViewer', {
+            type: "equirectangular",
+            panorama: "{{ url_for('static', filename='herbal/' + plant.image_name) }}",
+            autoLoad: true,
+            showZoomCtrl: true,
+            pitch: 0,
+            yaw: 0,
+            hfov: 110, // Initial zoom level
+            minHfov: 50, // Minimum zoom in
+            maxHfov: 140, // Maximum zoom out
+        });
+    });
+</script>
+
+
+
+
+
 
 <!-- Custom Styling -->
 <style>
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+    
+        .modal-content {
+            position: relative;
+            display: inline-block;
+            margin-top: 5%;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    
+        .modal img {
+            max-width: 100%;
+            max-height: 80vh;
+            transition: transform 0.3s ease;
+        }
+    
+        /* Close Button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            color: black;
+            cursor: pointer;
+        }
+    
+        /* Controls */
+        .controls {
+            margin-top: 10px;
+        }
+    
+        .controls button {
+            margin: 5px;
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background: green;
+            color: white;
+            border-radius: 5px;
+        }
+    
+        .controls button:hover {
+            background: darkgreen;
+        }
+  
+    
     .animate-image {
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     }
@@ -54,4 +363,8 @@
         margin-bottom: 8px;
     }
 </style>
+<!-- Include Pannellum.js (for zoom & pan functionality) -->
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+
 {% endblock %}
