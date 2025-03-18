@@ -3,10 +3,9 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="text-center">Herbal Prediction Result</h2>
+    <h2 class="text-center" >Herbal Prediction Result</h2>
     <div class="card mt-4">
-        <div class="card-header bg-primary text-white">
-            Prediction Details
+        <div style="background-color:green;" class="card-header text-white">Prediction Details
         </div>
         <div class="card-body">
             <p class="mb-2"><strong>Uploaded Image:</strong></p>
@@ -16,7 +15,7 @@
             <p class="text-success"><strong>Predicted Probabilities:</strong> {{ prediction_prob }}</p>
         </div>
         <div class="card-footer text-center">
-            <a href="/api/predict/herbal" class="btn btn-primary">Try Another Prediction</a>
+            <a href="/api/predict/herbal" class="btn btn-primary" style="background-color:green;">Try Another Prediction</a>
         </div>
     </div>
 </div>
