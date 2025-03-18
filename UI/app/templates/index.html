@@ -3,13 +3,20 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero-section text-center text-white d-flex align-items-center justify-content-center" style="background: linear-gradient(90deg, #3b7a57, #6ca965); height: 80vh;">
-    <div class="container">
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-start text-white position-relative" 
+    style="background: url('{{ url_for('static', filename='herbal/bgg.jpg') }}') no-repeat center center/cover; height: 90vh;">
+    
+    <!-- Content -->
+    <div class="container position-absolute start-0 top-50 translate-middle-y ps-5" style="max-width: 50%;">
         <h1 class="fw-bold display-4">Welcome to the Herbal Leaf Prediction System</h1>
         <p class="lead">An AI-powered system to analyze and predict herbal leaves with high accuracy.</p>
-        
     </div>
 </section>
+
+
+
+
 
 <!-- Features Section -->
 <section class="py-5">
@@ -46,14 +53,14 @@
 <section class="py-5 bg-light">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="/static/images/herbal_overview.jpg" alt="Herbal Overview" class="img-fluid rounded shadow">
+            <div class="col-md-7 text-center">
+                <img src="/static/herbal/plant.png" alt="Herbal Overview" class="img-fluid rounded shadow" style="width: 50%; height: auto;">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <h2 class="fw-bold">About Our Project</h2>
                 <p class="text-muted">Our AI-powered system helps users identify, analyze, and understand various herbal leaves. By leveraging deep learning and computer vision, we provide accurate predictions and detailed insights.</p>
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Real-time Leaf Analysis</li>
+                    <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Leaf Analysis</li>
                     <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Medicinal Uses and Benefits</li>
                     <li class="list-group-item"><i class="bi bi-check-circle text-success"></i> Availability and Distribution</li>
                 </ul>
@@ -62,70 +69,65 @@
     </div>
 </section>
 
-<!-- How It Works Section -->
-<section class="py-5">
-    <div class="container text-center">
-        <h2 class="fw-bold">How It Works</h2>
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="card shadow border-0 p-4">
-                    <h3 class="fw-bold">Step 1</h3>
-                    <p>Upload a clear image of the herbal leaf.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow border-0 p-4">
-                    <h3 class="fw-bold">Step 2</h3>
-                    <p>Our AI model analyzes and classifies the leaf.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow border-0 p-4">
-                    <h3 class="fw-bold">Step 3</h3>
-                    <p>Receive detailed information and medicinal benefits.</p>
-                </div>
-            </div>
+<section id="services" class="py-5">
+    <h1 style="text-align: center; color: rgb(0, 0, 0);"><h2 class="fw-bold" style="text-align:center;">SERVICES</h2></h1>
+    <div class="services-container">
+        
+        <div class="service-card text-center">
+            <img src="https://cdn.pixabay.com/photo/2023/10/05/15/53/ayurvedic-medicine-8296299_1280.jpg" alt="Explore AYUSH Systems">
+            <h2>Explore AYUSH Systems</h2>
         </div>
+
+        <div class="service-card text-center">
+            <img src="https://growhub.ae/cdn/shop/articles/7-medicinal-plants.jpg?v=1713117177&width=2048" alt="Identify Medicinal Plants">
+            <h2>Identify Medicinal Plants</h2>
+        </div>
+
+        <div class="service-card text-center">
+            <img src="https://t4.ftcdn.net/jpg/05/14/14/05/360_F_514140566_k8XnwO1whVssJlJVRaTPd8ZNrcY72mu5.jpg" alt="Find Natural Alternatives">
+            <h2>Find Natural Alternatives</h2>
+        </div>
+
     </div>
 </section>
 
-<!-- Services Section -->
-<section class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="fw-bold">Our Services</h2>
-        <p class="text-muted">Discover the features we offer to enhance herbal analysis.</p>
-        <div class="row mt-4">
-            <div class="col-md-3">
-                <div class="card shadow border-0 p-4">
-                    <i class="bi bi-camera text-success" style="font-size: 3rem;"></i>
-                    <h5>Leaf Identification</h5>
-                    <p>Get instant identification of herbal leaves.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow border-0 p-4">
-                    <i class="bi bi-hospital text-primary" style="font-size: 3rem;"></i>
-                    <h5>Medicinal Benefits</h5>
-                    <p>Learn about the medicinal uses of each herb.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow border-0 p-4">
-                    <i class="bi bi-geo-alt text-danger" style="font-size: 3rem;"></i>
-                    <h5>Availability</h5>
-                    <p>Find out where each herbal plant grows.</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card shadow border-0 p-4">
-                    <i class="bi bi-shield-lock text-warning" style="font-size: 3rem;"></i>
-                    <h5>Secure & Reliable</h5>
-                    <p>We ensure secure data processing and privacy.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<style>
+    /* Styling only within the #services section */
+    #services .services-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    #services .service-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 400px;  /* Increased width */
+        height: 430px; /* Increased height */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    #services .service-card:hover {
+        transform: scale(1.05);
+    }
+
+    #services .service-card img {
+        width: 100%;
+        height: 350px; /* Increased image height */
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    #services .service-card h2 {
+        font-size: 1.4rem; /* Slightly bigger text */
+        margin-top: 10px;
+        color: black;
+    }
+</style>
+
 
 <!-- Call to Action -->
 <section class="py-5 text-center" style="background: linear-gradient(90deg, #3b7a57, #6ca965); color: white;">
