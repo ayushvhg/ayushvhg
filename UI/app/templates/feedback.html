@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Feedback{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center text-success fw-bold">Give Your Feedback</h2>
+    <p class="text-center text-muted">Your feedback helps us improve!</p>
+
+    <form method="POST" action="{{ url_for('main.feedback') }}">
+        <div class="mb-3">
+            <label for="feedback" class="form-label">Your Feedback</label>
+            <textarea class="form-control" id="feedback" name="feedback" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Submit Feedback</button>
+    </form>
+</div>
+{% endblock %}

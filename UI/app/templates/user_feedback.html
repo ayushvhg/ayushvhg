@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>User Feedback</h2>
+<table style="border-collapse: collapse; width: 100%;">
+    <thead>
+        <tr>
+            <th style="border: 1px solid black; padding: 10px;">ID</th>
+            <th style="border: 1px solid black; padding: 10px;">User</th>
+            <th style="border: 1px solid black; padding: 10px;">Feedback</th>
+            <th style="border: 1px solid black; padding: 10px;">Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for feedback in feedbacks %}
+        <tr>
+            <td style="border: 1px solid black; padding: 10px;">{{ feedback.id }}</td>
+            <td style="border: 1px solid black; padding: 10px;">{{ feedback.user_id }}</td>
+            <td style="border: 1px solid black; padding: 10px;">{{ feedback.feedback_text }}</td>
+            <td style="border: 1px solid black; padding: 10px;">{{ feedback.created_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

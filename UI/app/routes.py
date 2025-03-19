@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
-from .models import User, OTP, Prediction, Admin, HerbalPlant, Disease
+from .models import User, OTP, Prediction, Admin, HerbalPlant, Disease,Feedback,HerbalTea
 from .helpers import send_otp_signin, send_otp_reset, send_otp_signup
 from . import db
 import bcrypt
@@ -23,6 +23,23 @@ def herbal_plants():
 
     return render_template("herbal_plants.html", plants=plants)
 
+@main.route("/herbal_teas", methods=["GET", "POST"])
+def herbal_teas():
+    teas = HerbalTea.query.all()  # Fetch all tea recipes
+
+    selected_tea = None
+    if request.method == "POST":
+        tea_id = request.form.get("tea_id")
+        selected_tea = HerbalTea.query.get(tea_id)
+
+    return render_template("herbal_teas.html", teas=teas, selected_tea=selected_tea)
+
+
+@main.route('/user_feedback')
+def user_feedback():
+    feedbacks = Feedback.query.all()  # Fetch all feedback records
+    return render_template('user_feedback.html', feedbacks=feedbacks)
+
 # Detailed Herbal Plant Page
 @main.route("/herbal-plants/<int:plant_id>")
 def herbal_plant_detail(plant_id):
@@ -40,6 +57,25 @@ def diseases():
         return render_template("disease.html", diseases=diseases, selected_disease=disease)
 
     return render_template("disease.html", diseases=diseases, selected_disease=None)
+
+
+@main.route('/generate_qr/<int:plant_id>')
+def generate_qr(plant_id):
+    plant = HerbalPlant.query.get_or_404(plant_id)
+    plant_url = url_for('main.herbal_plant_detail', plant_id=plant.id, _external=True)
+
+    import qrcode
+    import io
+    from flask import send_file
+
+    qr = qrcode.make(plant_url)
+    qr_io = io.BytesIO()
+    qr.save(qr_io, format="PNG")
+    qr_io.seek(0)
+
+    return send_file(qr_io, mimetype='image/png')
+
+
 
 @main.route('/signin', methods=['GET', 'POST'])
 def signin():
@@ -378,8 +414,40 @@ def admin_dashboard():
         top_users_data=top_users_data,
         prediction_data=prediction_data,
     )
+    
+#feedback
+from flask import render_template, request, redirect, url_for, flash, session
+from .models import Feedback, User
+from . import db
+
+@main.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if 'user_id' not in session:  # Ensure user is logged in
+        flash("You need to log in to submit feedback.", "warning")
+        return redirect(url_for('main.login'))
+
+    if request.method == 'POST':
+        feedback_text = request.form.get('feedback')
+        user_id = session['user_id']
+
+        if not feedback_text:
+            flash("Feedback cannot be empty.", "danger")
+        else:
+            new_feedback = Feedback(user_id=user_id, feedback_text=feedback_text)
+            db.session.add(new_feedback)
+            db.session.commit()
+            flash("Thank you for your feedback!", "success")
+            return redirect(url_for('main.dashboard'))  # Redirect after submission
+
+    return render_template('feedback.html')
+
 
 # Manage Users
+from flask import render_template, request, redirect, url_for, flash, session
+from . import db
+from .models import User
+from .helpers import send_email  # Import the email function
+
 @main.route('/manage_users', methods=['GET', 'POST'])
 def manage_users():
     if not session.get('admin'):
@@ -396,20 +464,29 @@ def manage_users():
             flash('User not found.', 'danger')
             return redirect(url_for('main.manage_users'))
 
+        email_subject = "Account Status Update"
+        email_message = ""
+
         if action == 'archive':
             user.status = 'archived'
-            db.session.commit()
+            email_message = f"Hello {user.name},\n\nYour account has been archived by the admin. You can no longer access your account."
             flash(f'User {user.name} archived.', 'warning')
         elif action == 'activate':
             user.status = 'active'
-            db.session.commit()
+            email_message = f"Hello {user.name},\n\nYour account has been reactivated by the admin. You can now log in again."
             flash(f'User {user.name} activated.', 'success')
         elif action == 'delete':
+            email_message = f"Hello {user.name},\n\nYour account has been permanently deleted by the admin."
             db.session.delete(user)
-            db.session.commit()
             flash(f'User {user.name} deleted.', 'danger')
 
+        db.session.commit()
+
+        # Send email notification
+        send_email(user.email, email_subject, email_message)
+
     return render_template('manage_users.html', users=users)
+
 
 import csv
 from io import StringIO

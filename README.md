@@ -21,61 +21,21 @@ An Interactive Guide to Medicinal Plants and Ayurvedic Remedies with AI Powered 
 Introduction
 The AYUSH Virtual Herbal Garden aims to revolutionize the identification and utilization of medicinal plants used in AYUSH systems—Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy. Leveraging AI-powered technologies, the project enhances precision and accessibility in identifying and utilizing medicinal plants.
 
-Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
-Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
+ Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
+ Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
 
-Diagram:![WhatsApp Image 2025-03-16 at 11 57 57](https://github.com/user-attachments/assets/8ff1fa6a-90ca-4348-8cdf-a4426c3c6f91)
-
-
-Key Features
-
- 1.⁠ ⁠Virtual Herbal Garden
-
-Users can explore a rich digital collection of medicinal plants, learning about their properties, benefits, and traditional uses. The garden provides an interactive visual experience that mimics a real-world herbal environment.
-
-2.⁠ ⁠Medicine Recommendation for Health Issues
-
-Based on user-inputted health concerns, the platform suggests herbal medicines and formulations derived from Ayurvedic classical texts and repositories, promoting natural healing alternatives.
-
-3.⁠ ⁠Yoga Posture Suggestions for Health Issue Cure
-
-Incorporating holistic well-being, the platform provides recommended yoga postures that aid in curing specific health conditions, aligning with traditional healing practices.
-
- 4.⁠ ⁠Medicinal Plant Identification by Image Upload
-
-Users can upload images of medicinal plants, and the system, using machine learning-based image recognition, identifies the plant and provides detailed information on its medicinal properties and uses.
-
- 5.⁠ ⁠User Feedback System
-
-An integrated feedback system allows users to share their experiences, report issues, or suggest improvements, fostering community engagement and continuous enhancement of the platform.
-
-6.⁠ ⁠Search and Filter Functionality
-
-Users can easily search and filter medicinal plants based on name, benefits, health concerns, and Ayurvedic classifications, ensuring quick access to relevant information.
-
-7.⁠ ⁠Voice-Based Search Function
-
-The platform supports voice-based search, enabling users to find information simply by speaking their queries, enhancing accessibility and ease of use.
-
-8.⁠ ⁠Text-to-Speech Feature
-
-To improve user experience, a text-to-speech function is included, allowing users to listen to plant descriptions, medicinal uses, and recommendations instead of reading them.
+ Diagram:
+ 
 
 
-9.⁠ ⁠QR Code Generation with Download Option
 
-Each medicinal plant profile includes a QR code that users can generate and download, making it easy to share and access plant information instantly.
+Features
+ Plant Identification Module: Upload plant images for identification and detailed information, including scientific names and geographic locations.
+ Disease Based medicine recommendation Module: Suggests Ayurvedic remedies, including formulations, usage instructions, and associated yoga practices.
+ Interactive UI: Flaskbased application offering userfriendly navigation and engagement.
 
-10.⁠ ⁠Multi-Language Translation
-
-To ensure accessibility for a diverse audience, the platform currently supports English, Telugu, and Hindi, with potential for expansion into more languages in the future.
-
-11. Herbal Teas Preparation and Benefits ☕
-Users can explore detailed guides on preparing herbal teas, including the benefits of each tea blend, ingredients, and brewing methods. Whether it's a soothing chamomile tea for relaxation or a ginger-turmeric tea for immunity, this feature promotes healthy lifestyle choices through herbal remedies.
-
-
- Visuals: ![Uploading WhatsApp Image 2025-03-16 at 12.21.33.jpeg…]()
-
+ Visuals:For visuals check out the figma design link provided in the end of the
+file.
 
 
 Technologies Used
@@ -113,7 +73,7 @@ A highlevel overview of the system’s workflow:
  Metrics: Accuracy, F1Score, ROC Curves.
  Visualization: Confusion Matrix, evaluation reports, model comparisons.
 
- Graphs/Charts: 
+ Graphs/Charts: Add visual examples
 
 
 
@@ -130,11 +90,11 @@ Installation
  Steps:
   1. Upload an image of a plant for identification.
   2. Search for remedies by disease.
- Visual Guide: 
+ Visual Guide: Add Figmabased UI wireframes for reference
 
 
 
- Future Enhancements Planned 
+ Future Enhancements
  Realtime Identification: Integrate live camera detection for instant plant identification.
  Mobile App Development: Expand the application to smartphones.
  Enhanced Remedies: Incorporate a wider range of Ayurvedic treatments.
@@ -142,7 +102,7 @@ Installation
 
 
 Contributing
-We heartly welcome contributions to improve the AYUSH Virtual Herbal Garden. Please follow these steps:
+We welcome contributions to improve the AYUSH Virtual Herbal Garden. Please follow these steps:
 1. Fork the repository.
 2. Create a new branch for your feature/bug fix.
 3. Submit a pull request with detailed documentation.

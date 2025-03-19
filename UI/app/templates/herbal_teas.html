@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Herbal Teas{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-success text-center">☕ Explore Herbal Teas</h2>
+
+    <!-- Drop-down Selection -->
+    <form method="POST" class="text-center">
+        <label for="teaSelect" class="fw-bold">Select a Herbal Tea:</label>
+        <select id="teaSelect" name="tea_id" class="form-select w-50 mx-auto">
+            <option value="" selected disabled>-- Choose a Tea --</option>
+            {% for tea in teas %}
+            <option value="{{ tea.id }}">{{ tea.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-success mt-3">View Recipe</button>
+    </form>
+
+    <!-- Display Selected Tea -->
+    {% if selected_tea %}
+    <div class="card shadow-lg mt-4 p-3">
+        <h3 class="text-center text-success">{{ selected_tea.name }}</h3>
+        <img src="{{ selected_tea.image_url }}" class="img-fluid rounded mx-auto d-block" style="max-width: 400px;">
+        
+        <h4>🍃 Ingredients:</h4>
+        <p>{{ selected_tea.ingredients }}</p>
+
+        <h4>🔄 Preparation:</h4>
+        <p>{{ selected_tea.preparation }}</p>
+
+        <h4>💚 Health Benefits:</h4>
+        <p>{{ selected_tea.benefits }}</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
