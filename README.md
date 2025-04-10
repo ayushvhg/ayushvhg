@@ -115,3 +115,13 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Note: For Figma design, refer to the Figma Design Link
 (https://www.figma.com/design/YyYLZuFl1VYqYyzRtYrQhx/GreenHouse?nodeid=01&t=HgbJxDqEQnhcmmwp1).
+
+
+# large-files-info.txt
+Large files (.h5 files) for this project are hosted in a shared Google Drive folder:
+https://drive.google.com/drive/folders/1JlnxCB2wxAt0hRhahiH_QmaWfTb80aFg?usp=share_link
+
+To download:
+1. Install gdown (`pip install gdown`)
+2. Run: `python download_drive_folder.py`
+
