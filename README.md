@@ -34,6 +34,48 @@ The AYUSH Virtual Herbal Garden aims to serve as:
 
 ---
 
+## Methodology:
+
+Agile Development — 12 weeks, 6 sprints.
+
+
+Sprint 1: Core system setup, AI plant identification using EfficientNet & ResNet.
+
+Sprint 2: 3D Virtual Tour & Plant Info (A-Frame).
+
+Sprint 3: Herbal Medicine & Yoga Pose Recommendation Module.
+
+Sprint 4: Herbal Teas Module & QR Code Generation.
+
+Sprint 5: Voice-based search, TTS, Advanced search filters.
+
+Sprint 6: Multi-language support, feedback system, final testing & optimization.
+
+Diagram:
+ <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
+
+
+---
+
+## Features : 
+
+
+1.Virtual Herbal Tour
+2.Plant Information Module
+3.Medicine Recommendation for Health Issues
+4.Yoga Posture Suggestions for Health Issue Cure
+5.Medicinal Plant Identification by Image Upload
+6.User Feedback System
+7.Search and Filter Functionality
+8.Voice-Based Search Function
+9.Text-to-Speech (TTS) Feature
+10.Multi-Language Translation
+11.QR Code Generation with Download Option
+12.Herbal Teas ModuleLITERATURE REVIEW
+
+---
+
+
 ## 📌 Core Features Breakdown
 
 ### 🌱 Virtual Herbal Tour
@@ -195,6 +237,34 @@ python app.py
 - Introduce interactive quizzes for educational purposes.
 
 ---
+## 📚 Literature Review Summary:
+
+
+Kavitha et al. (2023)
+
+Developed a MobileNet-based real-time medicinal plant identification system (6 species). Achieved 98.33% accuracy but limited to 6 species and highly dependent on image quality.
+
+Ambarwari et al. (2020)
+
+Used leaf venation features + SVM for plant identification. Accuracy: 82.67%. Limited by image conditions and complex preprocessing.
+
+Azadnia et al. (2022)
+
+Proposed a CNN-based model for leaf identification across 5 species, achieving 99.3% accuracy using multi-resolution testing.
+
+Vanmore et al. (2024)
+
+Introduced a Virtual Herbal Garden platform combining 3D models, plant data, and multimedia. Future scope includes AR, VR, and AI-enhanced search.
+
+Prasvita & Herdiyeni
+
+Created MedLeaf Android App using LBPV + PNN. Accuracy: 56.33%. Faced challenges with similar textures and low-quality images.
+
+ Diagram:
+ <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
+
+---
+
 
 ## 🤝 Contribution Workflow
 
@@ -231,64 +301,12 @@ Herbal tea module and QR code generation for easy sharing.
 Accessibility features: voice search, TTS, multilingual support.
 Future scope: AR integration, expert consultations, expanded database.
 
-Methodology:
-
-Agile Development — 12 weeks, 6 sprints.
 
 
-Sprint 1: Core system setup, AI plant identification using EfficientNet & ResNet.
 
-Sprint 2: 3D Virtual Tour & Plant Info (A-Frame).
-
-Sprint 3: Herbal Medicine & Yoga Pose Recommendation Module.
-
-Sprint 4: Herbal Teas Module & QR Code Generation.
-
-Sprint 5: Voice-based search, TTS, Advanced search filters.
-
-Sprint 6: Multi-language support, feedback system, final testing & optimization.
-
-
- Diagram:
- <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
 
 Features :
-1.Virtual Herbal Tour
-2.Plant Information Module
-3.Medicine Recommendation for Health Issues
-4.Yoga Posture Suggestions for Health Issue Cure
-5.Medicinal Plant Identification by Image Upload
-6.User Feedback System
-7.Search and Filter Functionality
-8.Voice-Based Search Function
-9.Text-to-Speech (TTS) Feature
-10.Multi-Language Translation
-11.QR Code Generation with Download Option
-12.Herbal Teas ModuleLITERATURE REVIEW
 
-
-📚 Literature Review Summary:
-
-
-Kavitha et al. (2023)
-
-Developed a MobileNet-based real-time medicinal plant identification system (6 species). Achieved 98.33% accuracy but limited to 6 species and highly dependent on image quality.
-
-Ambarwari et al. (2020)
-
-Used leaf venation features + SVM for plant identification. Accuracy: 82.67%. Limited by image conditions and complex preprocessing.
-
-Azadnia et al. (2022)
-
-Proposed a CNN-based model for leaf identification across 5 species, achieving 99.3% accuracy using multi-resolution testing.
-
-Vanmore et al. (2024)
-
-Introduced a Virtual Herbal Garden platform combining 3D models, plant data, and multimedia. Future scope includes AR, VR, and AI-enhanced search.
-
-Prasvita & Herdiyeni
-
-Created MedLeaf Android App using LBPV + PNN. Accuracy: 56.33%. Faced challenges with similar textures and low-quality images.
 
 
 💡 Existing System Overview:
