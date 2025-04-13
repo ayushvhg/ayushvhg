@@ -3,7 +3,9 @@ An Interactive Guide to Medicinal Plants and Ayurvedic Remedies with AI Powered 
 
  Table of Contents
 1. Introduction
-2. Features
+2. Table of Contents
+3. Features
+4. System Analysis
 3. Technologies Used 
 4. Dataset 
 5. System Architecture 
@@ -19,14 +21,157 @@ An Interactive Guide to Medicinal Plants and Ayurvedic Remedies with AI Powered 
 
 
 Introduction
-The AYUSH Virtual Herbal Garden aims to revolutionize the identification and utilization of medicinal plants used in AYUSH systems—Ayurveda, Yoga & Naturopathy, Unani, Siddha, and Homeopathy. Leveraging AI-powered technologies, the project enhances precision and accessibility in identifying and utilizing medicinal plants.
+Problem Statement:
 
- Problem Statement: Current plant identification systems rely heavily on human expertise, leading to errors and limited scalability.
- Solution: AI and Transfer Learning models enable accurate and efficient plant identification, bridging the gap between traditional Ayurvedic knowledge and modern technology.
+Limited access to physical herbal gardens and lack of botanical knowledge lead to plant misidentification and misuse of traditional AYUSH remedies.
+Existing resources are non-interactive and not tailored for AYUSH medicinal plants.
+
+Objective:
+
+Create an interactive 3D virtual garden for exploring medicinal plants.
+Integrate AI-powered plant identification, personalized herbal medicine & yoga recommendations, voice-based search, text-to-speech, and multi-language support.
+
+Scope:
+
+3D virtual exploration of AYUSH medicinal plants.
+AI-driven plant identification and wellness guidance (herbs, yoga).
+Herbal tea module and QR code generation for easy sharing.
+Accessibility features: voice search, TTS, multilingual support.
+Future scope: AR integration, expert consultations, expanded database.
+
+Methodology:
+
+Agile Development — 12 weeks, 6 sprints.
+Sprint 1: Core system setup, AI plant identification using EfficientNet & ResNet.
+Sprint 2: 3D Virtual Tour & Plant Info (A-Frame).
+Sprint 3: Herbal Medicine & Yoga Pose Recommendation Module.
+Sprint 4: Herbal Teas Module & QR Code Generation.
+Sprint 5: Voice-based search, TTS, Advanced search filters.
+Sprint 6: Multi-language support, feedback system, final testing & optimization.
+
 
  Diagram:
- 
+ <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
 
+Features :
+1.Virtual Herbal Tour
+2.Plant Information Module
+3.Medicine Recommendation for Health Issues
+4.Yoga Posture Suggestions for Health Issue Cure
+5.Medicinal Plant Identification by Image Upload
+6.User Feedback System
+7.Search and Filter Functionality
+8.Voice-Based Search Function
+9.Text-to-Speech (TTS) Feature
+10.Multi-Language Translation
+11.QR Code Generation with Download Option
+12.Herbal Teas ModuleLITERATURE REVIEW
+
+
+📚 Literature Review Summary:
+Kavitha et al. (2023)
+Developed a MobileNet-based real-time medicinal plant identification system (6 species). Achieved 98.33% accuracy but limited to 6 species and highly dependent on image quality.
+Ambarwari et al. (2020)
+Used leaf venation features + SVM for plant identification. Accuracy: 82.67%. Limited by image conditions and complex preprocessing.
+Azadnia et al. (2022)
+Proposed a CNN-based model for leaf identification across 5 species, achieving 99.3% accuracy using multi-resolution testing.
+Vanmore et al. (2024)
+Introduced a Virtual Herbal Garden platform combining 3D models, plant data, and multimedia. Future scope includes AR, VR, and AI-enhanced search.
+Prasvita & Herdiyeni
+Created MedLeaf Android App using LBPV + PNN. Accuracy: 56.33%. Faced challenges with similar textures and low-quality images.
+
+💡 Existing System Overview:
+Virtual Herbal Garden:
+Web platform (HTML, CSS, JS, Node.js, MongoDB) for learning AYUSH medicinal plants through text & multimedia, but lacks 3D/VR interactivity and advanced features.
+MobileNet-based Real-Time Identification:
+Focused on 6 plant species, trained with ~3,000 images, achieved 98.33% accuracy but limited scalability, narrow species coverage, and cloud-dependency.
+
+⚡ Limitations of Existing Systems:
+Limited Accessibility:
+Physical gardens & expert knowledge are hard to access; systems lack offline usability and multi-language support.
+Scalability Issues:
+Existing models handle a limited number of species and struggle with database expansion.
+Lack of Engagement:
+Minimal interactivity; limited VR/AR, multimedia, personalized learning.
+Insufficient AYUSH Context:
+Lack of remedy recommendations, yoga suggestions, or holistic health guidance.
+
+🔍 Gap Analysis:
+Current systems focus mainly on basic plant identification without AYUSH-specific insights, holistic health recommendations, 3D immersion, accessibility tools, or scalability.
+AI-based identification (EfficientNet + ResNet for 30 species).
+3D Virtual Garden (A-Frame).
+Personalized herbal medicine & yoga recommendations.
+Voice search, text-to-speech, QR code, herbal tea module & multi-language support.
+
+🌿 Relevance of the Project:
+Aligns with rising global interest in natural remedies and AYUSH-based healthcare.
+Empowers students, practitioners, and enthusiasts through accessible, engaging, and immersive learning.
+Promotes cultural preservation of Indian traditional medicine via modern technology.
+Bridges the gap between traditional wisdom and AI-driven digital solutions.
+Supports health education and integration of alternative medicine in modern healthcare.
+
+<img width="760" alt="Screenshot 2025-04-13 at 2 52 03 PM" src="https://github.com/user-attachments/assets/d93ddae0-da2d-478c-aaa6-9f8c3f48e085" />
+
+
+CHAPTER 3 # SYSTEM ANALYSIS
+
+3.1 Functional Requirements
+Virtual Herbal Tour:
+Provides a 3D VR garden using A-Frame with plant categories (Ayurveda, Yoga, Unani, Siddha, Homeopathy). Supports full-screen VR, WASD navigation, and displays plant names & descriptions.
+Plant Identification Module:
+Identifies medicinal plants using CNNs with Transfer Learning (EfficientNet, ResNet) on a dataset of ~2,000 images across 30 species.
+User Interface (Flask):
+Web-based interface for plant identification and detailed plant info (scientific name, uses, habitat).
+Disease & Remedy Module:
+Suggests Ayurvedic remedies based on user-inputted symptoms, using a predefined knowledge base.
+Prediction Module:
+AI-powered plant species prediction from uploaded images, returning botanical and medicinal data.
+Herbal Teas Module:
+Offers herbal tea recipes with ingredients, preparation steps, and health benefits.
+User Engagement & Accessibility:
+Features search, plant comparison, bookmarking, voice search, and multi-language support.
+Reliability & Performance:
+Ensures real-time plant identification with high accuracy and handles multiple requests efficiently.
+Data Management:
+Scalable plant image storage, easy updates for new species and remedies.
+
+
+3.2 Software & Hardware Requirements
+Hardware:
+PC/Laptop (8GB+ RAM, multi-core CPU)
+Storage for datasets and models.
+Software:
+Python, Anaconda, Jupyter Notebook.
+Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn.
+
+
+3.3 Feasibility Study
+Technical Feasibility:
+Combines Flask, A-Frame, EfficientNet, ResNet, cloud storage, and voice/multilingual features.
+Economic Feasibility:
+Open-source tools, pre-trained models, and cloud hosting reduce costs while ensuring scalability.
+Operational Feasibility:
+Real-time plant identification, immersive VR tour, voice search, feedback system, and easy database management.
+
+
+3.4 Proposed System
+Ayush Virtual Herbal Garden combines AI-powered plant identification, VR-based exploration, and Ayurvedic knowledge into a single platform. It uses CNN models (EfficientNet, ResNet) for image-based plant prediction, a Flask-based UI for detailed insights, and an A-Frame-powered virtual garden for interactive learning.
+
+Key Modules:
+
+Virtual Herbal Tour (3D VR garden).
+Herbal Info (detailed plant profiles).
+Disease & Remedy (symptom-based solutions).
+Herbal Prediction (image-based identification).
+Herbal Teas (recipes & health benefits).
+
+
+Advantages:
+
+Accurate AI-based plant identification.
+Immersive VR learning.
+Comprehensive AYUSH medicinal knowledge.
+Scalable, accessible, and cost-effective.
 
 
 Features
