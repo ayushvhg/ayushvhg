@@ -42,11 +42,18 @@ Future scope: AR integration, expert consultations, expanded database.
 Methodology:
 
 Agile Development — 12 weeks, 6 sprints.
+
+
 Sprint 1: Core system setup, AI plant identification using EfficientNet & ResNet.
+
 Sprint 2: 3D Virtual Tour & Plant Info (A-Frame).
+
 Sprint 3: Herbal Medicine & Yoga Pose Recommendation Module.
+
 Sprint 4: Herbal Teas Module & QR Code Generation.
+
 Sprint 5: Voice-based search, TTS, Advanced search filters.
+
 Sprint 6: Multi-language support, feedback system, final testing & optimization.
 
 
