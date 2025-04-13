@@ -282,63 +282,83 @@ Diagram: Existing System Architecture
 ## 16.Results :
 
 
+<img width="844" alt="Screenshot 2025-04-13 at 4 57 56 PM" src="https://github.com/user-attachments/assets/c7c8c55a-df1d-45aa-821f-bbc50c7a2218" />
 
 fig 16.1 Home Page
 
+<img width="834" alt="Screenshot 2025-04-13 at 4 58 34 PM" src="https://github.com/user-attachments/assets/77ad44dc-a3ad-49c4-9f36-68f0611a1997" />
 
 fig 16.2 Sign In Page
 
+<img width="836" alt="Screenshot 2025-04-13 at 4 58 54 PM" src="https://github.com/user-attachments/assets/677f62b7-fc18-46bd-a092-bacfe4487693" />
 
 fig 16.3 Sign Up page
 
+<img width="833" alt="Screenshot 2025-04-13 at 4 59 09 PM" src="https://github.com/user-attachments/assets/787a2344-1699-4aaa-b04c-6ae19627abaf" />
 
 fig 16.4 Admin Login Page
 
+<img width="890" alt="Screenshot 2025-04-13 at 4 59 25 PM" src="https://github.com/user-attachments/assets/558630d0-b66c-425a-80dc-1e1e37a9e6da" />
 
 fig 16.5 Admin Dashboard
 
+<img width="845" alt="Screenshot 2025-04-13 at 4 59 41 PM" src="https://github.com/user-attachments/assets/4c15aebb-9b82-4c9a-93a7-3250071f4d81" />
 
 fig 16.6 User Management Dashboard
 
+<img width="851" alt="Screenshot 2025-04-13 at 4 59 58 PM" src="https://github.com/user-attachments/assets/6b68ec07-1940-4bdf-b7ca-c5406d0d6a73" />
 
 fig 16.7 Ayush Tour Page
 
+<img width="865" alt="Screenshot 2025-04-13 at 5 00 10 PM" src="https://github.com/user-attachments/assets/483db004-1a47-4762-a80a-70d8abe8f434" />
 
 fig 16.8 Ayush Virtual Tour
 
+<img width="827" alt="Screenshot 2025-04-13 at 5 00 23 PM" src="https://github.com/user-attachments/assets/bd2a9b03-9f50-4c0c-bec5-54846bb20897" />
 
 fig 16.9 Disease Module
 
+<img width="759" alt="Screenshot 2025-04-13 at 5 00 37 PM" src="https://github.com/user-attachments/assets/2cd02f62-6700-4f1e-8a41-6c13ab9cc59c" />
 
 fig 16.10 Natural Therapy and Yoga Recommendation Module
 
+<img width="704" alt="Screenshot 2025-04-13 at 5 00 50 PM" src="https://github.com/user-attachments/assets/643d1261-59ff-4c9f-a8df-dd588812db28" />
 
 fig 16.11 Plant Prediction Module
 
+<img width="841" alt="Screenshot 2025-04-13 at 5 01 00 PM" src="https://github.com/user-attachments/assets/75cb49bd-9cf0-41d3-9e26-424f1e434910" />
 
 fig 16.12 Herbal Teas Module
 
- 
+ <img width="842" alt="Screenshot 2025-04-13 at 5 01 18 PM" src="https://github.com/user-attachments/assets/68c96650-5e63-41b4-9c37-3a04737e5ecb" />
+
 fig 16.13 User Feedback
 
+<img width="865" alt="Screenshot 2025-04-13 at 5 01 32 PM" src="https://github.com/user-attachments/assets/84721e05-4d1a-4112-bbee-8dc6c52cb176" />
 
 fig 16.14 Admin Feedback Page
 
+<img width="830" alt="Screenshot 2025-04-13 at 5 01 48 PM" src="https://github.com/user-attachments/assets/86081edd-7baf-4aeb-8e23-3e69028468c9" />
 
 fig 16.15 Herbal Plants Module
 
+<img width="841" alt="Screenshot 2025-04-13 at 5 02 05 PM" src="https://github.com/user-attachments/assets/e6a1ad82-bff7-46e6-b95b-c9c88d15fb28" />
 
 fig 16.16 Plant Information Module
 
+<img width="889" alt="Screenshot 2025-04-13 at 5 02 19 PM" src="https://github.com/user-attachments/assets/620f2474-74dc-40d1-b462-f1124b64cd74" />
 
 fig 16.17 Herbal Plant prediction1
 
+<img width="886" alt="Screenshot 2025-04-13 at 5 02 35 PM" src="https://github.com/user-attachments/assets/ad04dbda-8311-4e4f-a02d-f498fb2ffe5d" />
 
 fig 16.18 Herbal plant prediction2
 
+<img width="763" alt="Screenshot 2025-04-13 at 5 02 52 PM" src="https://github.com/user-attachments/assets/a6e2dd5e-3f50-4e88-b993-e3ed9218a049" />
 
 fig 16.19 Herbal Plant prediction3
 
+<img width="814" alt="Screenshot 2025-04-13 at 5 03 03 PM" src="https://github.com/user-attachments/assets/b0d426cb-b23e-43f8-be53-ac2dc2bcd0d3" />
 
 fig 16.20 Herbal Plant Prediction4
 
