@@ -51,9 +51,9 @@ Sprint 5: Voice-based search, TTS, Advanced search filters.
 
 Sprint 6: Multi-language support, feedback system, final testing & optimization.
 
-Diagram: Agile Methodology
- <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
 
+ <img width="954" alt="Screenshot 2025-04-13 at 2 43 45 PM" src="https://github.com/user-attachments/assets/7420f9ab-25aa-4c39-9831-586ad9e75ff2" />
+Diagram: Agile Methodology
 
 ---
 
@@ -260,8 +260,10 @@ Prasvita & Herdiyeni
 
 Created MedLeaf Android App using LBPV + PNN. Accuracy: 56.33%. Faced challenges with similar textures and low-quality images.
 
- Diagram: Existing System Architecture
+
 <img width="760" alt="Screenshot 2025-04-13 at 2 52 03 PM" src="https://github.com/user-attachments/assets/d93ddae0-da2d-478c-aaa6-9f8c3f48e085" />
+
+Diagram: Existing System Architecture
 
 ---
 
